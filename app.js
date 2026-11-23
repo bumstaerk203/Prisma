@@ -76,6 +76,13 @@
     }
   }).catch(() => document.querySelectorAll("[data-version]").forEach((el) => (el.textContent = el.classList.contains("ver") ? "Latest" : "")));
 
+  // show / hide password
+  document.querySelectorAll('input[type=password]').forEach((i) => {
+    const w = document.createElement("span"); w.className = "pw"; i.parentNode.insertBefore(w, i); w.appendChild(i);
+    const b = document.createElement("button"); b.type = "button"; b.className = "pw-btn"; b.textContent = "Show"; w.appendChild(b);
+    b.onclick = () => { const h = i.type === "password"; i.type = h ? "text" : "password"; b.textContent = h ? "Hide" : "Show"; };
+  });
+
   // ---------- auth pages ----------
   const form = $("#form"), box = $("#msg");
   const needSb = () => { if (sb) return true; if (box) msg(box, "Accounts are not configured yet: add the Supabase anon key in config.js."); if (form) form.querySelector("button").disabled = true; return false; };

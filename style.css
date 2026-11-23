@@ -282,3 +282,7 @@ nav a{white-space:nowrap}
 .app-nav{align-items:stretch}
 .app-toast{top:auto;bottom:16px;transform:translate(-50%,10px)}.app-toast.show{transform:translate(-50%,0)}
 .game .lnk{font-size:15px;text-decoration:none;padding:4px}
+
+.pw{position:relative;display:block}.pw input{width:100%;padding-right:64px}
+.pw-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#ffffff0a;color:var(--text);font:inherit;font-size:12px;cursor:pointer}
+.pw-btn:hover{border-color:var(--p)}
