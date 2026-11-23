@@ -736,9 +736,8 @@
     if (!animOn) endSplash(); else if (warpOn) startWarp();
     else splash.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300 }).onfinish = endSplash;
   }, null, true);
-  let bob = 0;
-  setInterval(() => { if (splash.style.display !== "none" && animOn) { bob += 0.07; slogo.style.top = 190 + Math.round(Math.sin(bob) * 6) + "px"; } }, 30);
-  const showSplashScreen = () => { splash.style.display = ""; slogo.style.top = "190px"; };
+  (function bob(t) { if (splash.style.display !== "none" && animOn) slogo.style.transform = `translateY(${Math.sin(t / 1000 * 2.33) * 6}px)`; requestAnimationFrame(bob); })(0);
+  const showSplashScreen = () => { splash.style.display = ""; };
   const warp = box(root, "warp", 0, 0, 1178, 788, "canvas"); warp.width = 1178; warp.height = 788; warp.style.display = "none";
   const N = 230, ang = [], bs = [], sp = [], tint = [];
   for (let i = 0; i < N; i++) { ang[i] = Math.random() * Math.PI * 2; bs[i] = Math.random(); sp[i] = 0.35 + Math.random() * 1.9; tint[i] = Math.random(); }
