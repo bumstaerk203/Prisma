@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Try Prisma in your browser</title>
-<meta name="description" content="Try a live demo of Prisma: colour and vibrance, presets, crosshair, CPU/GPU overlay and per-game profiles.">
+<meta name="description" content="Try a live demo of the Prisma app: saturation and colour, saved looks, crosshair, overlay, game profiles, binds and themes.">
 <meta name="theme-color" content="#07060b">
 <meta property="og:title" content="Try Prisma in your browser">
-<meta property="og:description" content="Try a live demo of Prisma: colour and vibrance, presets, crosshair, CPU/GPU overlay and per-game profiles.">
-<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<meta property="og:description" content="Try a live demo of the Prisma app: saturation and colour, saved looks, crosshair, overlay, game profiles, binds and themes.">
+<link rel="icon" href="assets/icon-64.png" type="image/png">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
 <script src="config.js" defer></script>
@@ -18,14 +18,15 @@
 <header class="site"></header>
 <main>
 <div class="wrap page">
-  <div class="demo-head"><div><h1>Try Prisma</h1><p class="muted">A live demo of the app, right in your browser. Move the sliders and watch the scene change. Nothing on your PC is touched.</p></div>
+  <div class="demo-head"><div><h1>Try Prisma</h1><p class="muted">A live copy of the Prisma app, right in your browser. Every tab works. Change the colours, build a crosshair, set binds. Nothing on your PC is touched.</p></div>
   <a class="btn" data-dl href="download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg> Get the real app</a></div>
   <div class="app" id="app">
-    <div class="app-bar"><img src="assets/logo.svg" alt=""><b>Prisma</b><span class="tag">DEMO</span><span class="app-game" id="gameLabel">Desktop</span><span class="dots"><i></i><i></i><i></i></span></div>
+    <div class="app-bar"><img src="assets/icon-64.png" alt=""><b class="spaced">P R I S M A</b><span class="tag">V1.01</span><span class="tag demo">DEMO</span><span class="app-game" id="gameLabel"></span><span class="dots"><i></i><i></i><i></i></span><span class="streak"></span></div>
     <div class="app-body">
-      <nav class="app-nav" aria-label="Demo sections"><button data-tab="colour" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg><span>Colour</span></button><button data-tab="presets" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Presets</span></button><button data-tab="profiles" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4M16 11h.01M18 13h.01"/></svg><span>Profiles</span></button><button data-tab="crosshair" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></svg><span>Crosshair</span></button><button data-tab="overlay" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-7 4 5"/><path d="M3 21h18"/></svg><span>Overlay</span></button><button data-tab="optimizer" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>Optimizer</span></button><button data-tab="hotkeys" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg><span>Hotkeys</span></button><button data-tab="themes" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-1.1-.9-1.5-1.7-1.2A4 4 0 0 1 14 6.5c0-.9-.4-1.6-1.3-2z"/></svg><span>Themes</span></button></nav>
+      <nav class="app-nav" aria-label="Demo sections"><p class="navh">MENU</p><button data-tab="colour" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg><span>Colour</span></button><button data-tab="presets" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg><span>Presets</span></button><button data-tab="optimize" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span>Optimize</span></button><button data-tab="crosshair" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></svg><span>Crosshair</span></button><button data-tab="overlay" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 4 5-7 4 5"/><path d="M3 21h18"/></svg><span>Overlay</span></button><button data-tab="games" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4M16 11h.01M18 13h.01"/></svg><span>Games</span></button><button data-tab="binds" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg><span>Binds</span></button><p class="navh">GENERAL</p><button data-tab="themes" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-1.1-.9-1.5-1.7-1.2A4 4 0 0 1 14 6.5c0-.9-.4-1.6-1.3-2z"/></svg><span>Themes</span></button><button data-tab="account" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>Account</span></button><button data-tab="settings" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.8 1.2V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 7 19.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0-1.2-2.8H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 2.8-1.2V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.8 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0 1.2 2.8H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span>Settings</span></button><button data-tab="about" class=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg><span>About</span></button></nav>
       <div class="app-main">
-        <div class="preview" id="preview"><svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-label="Sample game scene">
+        <div class="preview" id="preview">
+          <div class="layer before" id="before"><svg id="sceneB" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-label="Sample game scene">
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a8f"/><stop offset=".45" stop-color="#d9468a"/><stop offset=".75" stop-color="#ff9a52"/></linearGradient>
 <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a5c"/><stop offset=".35" stop-color="#2a7fc4"/><stop offset="1" stop-color="#123d74"/></linearGradient>
@@ -46,39 +47,109 @@
 <path d="M520 900 760 640h40L700 900z" fill="#c9a06b" opacity=".9"/>
 <g><rect x="470" y="600" width="90" height="62" fill="#f4f1ea"/><path d="m460 604 55-42 55 42z" fill="#d6453d"/><rect x="503" y="626" width="22" height="36" fill="#7a4a2a"/><rect x="480" y="614" width="16" height="14" fill="#ffd25e"/></g>
 <g fill="#fff" opacity=".85"><path d="M250 150h120a30 30 0 0 0-60-20 40 40 0 0 0-60 20z"/><path d="M1300 110h150a35 35 0 0 0-70-24 46 46 0 0 0-80 24z"/></g>
-</svg>
-          <svg class="xhair" id="xhair" viewBox="-50 -50 100 100"></svg>
+</svg></div>
+          <div class="layer after" id="after"><svg id="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-label="Sample game scene">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b2a8f"/><stop offset=".45" stop-color="#d9468a"/><stop offset=".75" stop-color="#ff9a52"/></linearGradient>
+<linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a5c"/><stop offset=".35" stop-color="#2a7fc4"/><stop offset="1" stop-color="#123d74"/></linearGradient>
+<radialGradient id="sun"><stop offset="0" stop-color="#fff6c2"/><stop offset=".5" stop-color="#ffd25e"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<circle cx="1050" cy="470" r="260" fill="url(#sun)"/><circle cx="1050" cy="470" r="95" fill="#ffe08a"/>
+<path d="M0 520 210 330 380 450 560 260 790 470 960 340 1180 480 1380 300 1600 460V600H0z" fill="#6c3fb0"/>
+<path d="M0 560 160 450 330 540 520 400 700 560 900 430 1100 560 1300 420 1600 560V620H0z" fill="#46288a"/>
+<path d="M0 600h1600v300H0z" fill="url(#lake)"/>
+<ellipse cx="1050" cy="640" rx="160" ry="10" fill="#ffe08a" opacity=".55"/><ellipse cx="1050" cy="680" rx="100" ry="6" fill="#ffe08a" opacity=".35"/>
+<path d="M0 640C220 610 420 650 600 700 720 735 760 900 760 900H0z" fill="#1f8a5b"/>
+<path d="M1600 660C1400 650 1250 700 1150 760 1080 800 1060 900 1060 900H1600z" fill="#18774e"/>
+<g fill="#0f4d33">
+<path d="m80 650 40-120 40 120z"/><path d="m150 660 48-150 48 150z"/><path d="m250 668 36-105 36 105z"/><path d="m340 680 44-130 44 130z"/><path d="m60 760 52-160 52 160z"/><path d="m200 790 60-190 60 190z"/>
+<path d="m1260 720 46-140 46 140z"/><path d="m1360 700 54-170 54 170z"/><path d="m1470 710 44-135 44 135z"/><path d="m1400 820 62-190 62 190z"/>
+</g>
+<path d="M520 900 760 640h40L700 900z" fill="#c9a06b" opacity=".9"/>
+<g><rect x="470" y="600" width="90" height="62" fill="#f4f1ea"/><path d="m460 604 55-42 55 42z" fill="#d6453d"/><rect x="503" y="626" width="22" height="36" fill="#7a4a2a"/><rect x="480" y="614" width="16" height="14" fill="#ffd25e"/></g>
+<g fill="#fff" opacity=".85"><path d="M250 150h120a30 30 0 0 0-60-20 40 40 0 0 0-60 20z"/><path d="M1300 110h150a35 35 0 0 0-70-24 46 46 0 0 0-80 24z"/></g>
+</svg></div>
+          <img class="shot-img" id="shotB" alt="" hidden><img class="shot-img after-img" id="shotA" alt="" hidden>
+          <div class="split" id="split"><span class="lbl l">BEFORE</span><span class="lbl r">AFTER</span><i></i></div>
+          <svg class="xhair" id="xhair" viewBox="-60 -60 120 120"></svg>
           <div class="ov tl" id="ov"></div>
-          <span class="cmp-tag" id="cmpTag" hidden>Original</span>
           <div class="app-toast" id="appToast"></div>
         </div>
         <div class="panels">
 <section class="pnl" data-panel="colour"><h3>Colour</h3>
-<div class="ctl"><label>Digital vibrance<output data-o="vib"></output></label><input type="range" min="0" max="100" step="1" data-k="vib"></div><div class="ctl"><label>Brightness<output data-o="bri"></output></label><input type="range" min="0" max="100" step="1" data-k="bri"></div><div class="ctl"><label>Contrast<output data-o="con"></output></label><input type="range" min="0" max="100" step="1" data-k="con"></div><div class="ctl"><label>Gamma<output data-o="gam"></output></label><input type="range" min="50" max="200" step="5" data-k="gam"></div>
-<div class="actions"><button class="btn btn-sm" id="compare">Hold to compare</button><button class="btn btn-sm btn-ghost" id="resetColour">Reset</button></div></section>
-<section class="pnl" data-panel="presets" hidden><h3>Presets</h3><div id="presetList" class="plist"></div>
-<button class="btn btn-sm btn-ghost" id="savePreset" style="margin-top:12px">+ Save current as preset</button></section>
-<section class="pnl" data-panel="profiles" hidden><h3>Per-game profiles</h3><p class="hint">Launch a game: Prisma detects it and applies its profile automatically.</p><div id="gameList" class="plist"></div></section>
-<section class="pnl" data-panel="crosshair" hidden><h3>Crosshair</h3><label class="swrow">Show crosshair<span class="sw"><input type="checkbox" id="chOn" checked><i></i></span></label>
-<div class="seg"><button data-style="cross" class="on">Cross</button><button data-style="t" class="">T</button><button data-style="dot" class="">Dot</button><button data-style="circle" class="">Circle</button></div>
-<div class="swatches"><button data-color="#22ff88" class="on" aria-label="#22ff88"></button><button data-color="#00e5ff" class="" aria-label="#00e5ff"></button><button data-color="#ff3b6b" class="" aria-label="#ff3b6b"></button><button data-color="#ffe14d" class="" aria-label="#ffe14d"></button><button data-color="#ffffff" class="" aria-label="#ffffff"></button><button data-color="#c084fc" class="" aria-label="#c084fc"></button></div>
-<div class="ctl"><label>Size</label><input type="range" min="2" max="30" value="10" data-ch="size"></div><div class="ctl"><label>Thickness</label><input type="range" min="1" max="6" value="2" data-ch="thick"></div><div class="ctl"><label>Gap</label><input type="range" min="0" max="14" value="4" data-ch="gap"></div>
-<label class="swrow">Black outline<span class="sw"><input type="checkbox" id="chOutline" checked><i></i></span></label></section>
-<section class="pnl" data-panel="overlay" hidden><h3>CPU / GPU overlay</h3><label class="swrow">Show overlay<span class="sw"><input type="checkbox" id="ovOn" checked><i></i></span></label>
-<p class="hint">Position</p><div class="seg"><button data-pos="tl" class="on">↖</button><button data-pos="tr" class="">↗</button><button data-pos="bl" class="">↙</button><button data-pos="br" class="">↘</button></div>
-<p class="hint">Show</p><div class="checks"><label><input type="checkbox" data-item="fps" checked> FPS</label><label><input type="checkbox" data-item="cpu" checked> CPU load</label><label><input type="checkbox" data-item="gpu" checked> GPU load</label><label><input type="checkbox" data-item="temp" checked> Temperatures</label></div></section>
-<section class="pnl" data-panel="optimizer" hidden><h3>Windows optimizer</h3>
-<div class="checks col" id="optList"><label><input type="checkbox" checked> Enable Game Mode</label><label><input type="checkbox" checked> High-performance power plan</label><label><input type="checkbox" checked> Disable Xbox Game Bar captures</label><label><input type="checkbox" checked> Reduce background apps</label><label><input type="checkbox" checked> Turn off mouse acceleration</label><label><input type="checkbox" checked> Clear temporary files</label></div>
-<button class="btn btn-sm" id="optRun" style="margin-top:14px">Optimize now</button>
-<div class="bar" id="optBar" hidden><b></b></div><p class="hint" id="optOut"></p></section>
-<section class="pnl" data-panel="hotkeys" hidden><h3>Hotkeys</h3><p class="hint">These work right now. Try them!</p>
-<div class="keys"><div><span>Default preset</span><kbd>Alt+1</kbd></div><div><span>Competitive preset</span><kbd>Alt+2</kbd></div><div><span>Cinematic preset</span><kbd>Alt+3</kbd></div><div><span>Night preset</span><kbd>Alt+4</kbd></div><div><span>Toggle crosshair</span><kbd>Alt+C</kbd></div><div><span>Toggle overlay</span><kbd>Alt+O</kbd></div></div></section>
-<section class="pnl" data-panel="themes" hidden><h3>Themes</h3><p class="hint">Pick an accent colour for the app.</p>
-<div class="swatches big"><button data-accent="#8b5cf6" class="on" aria-label="Purple"></button><button data-accent="#3b82f6" class="" aria-label="Blue"></button><button data-accent="#ec4899" class="" aria-label="Pink"></button><button data-accent="#10b981" class="" aria-label="Green"></button><button data-accent="#f97316" class="" aria-label="Orange"></button></div></section></div>
+<div class="actions tight"><button class="btn btn-sm" id="filterBtn">Filter on</button><button class="btn btn-sm btn-ghost" id="screenBtn">Whole screen: off</button></div>
+<p class="hint" id="screenNote">Whole screen is OFF. The sliders only change the picture above.</p>
+<div class="ctl"><label>Saturation<output data-o="vib"></output></label><input type="range" min="0" max="100" step="1" data-k="vib"></div><div class="ctl"><label>Brightness<output data-o="bri"></output></label><input type="range" min="0" max="100" step="1" data-k="bri"></div><div class="ctl"><label>Contrast<output data-o="con"></output></label><input type="range" min="0" max="100" step="1" data-k="con"></div><div class="ctl"><label>Gamma<output data-o="gam"></output></label><input type="range" min="50" max="250" step="5" data-k="gam"></div>
+<div class="actions tight"><label class="btn btn-sm btn-ghost file">Load screenshot<input type="file" accept="image/png,image/jpeg,image/bmp" id="shotIn" hidden></label><button class="btn btn-sm btn-ghost" id="shotDel" hidden>Delete screenshot</button><button class="btn btn-sm btn-ghost" id="resetColour">Reset this display</button></div>
+<p class="hint">Prisma works best with your own uploaded screenshots. In this demo your picture stays in your browser.</p></section>
+
+<section class="pnl" data-panel="presets" hidden><h3>Presets</h3>
+<p class="hint">Save the current look for this display</p>
+<div class="actions tight"><button class="btn btn-sm" id="saveLook">Save look</button></div>
+<div id="lookList" class="plist" style="margin-top:14px"></div>
+<p class="hint">Click a saved look to use it. Right-click it to delete it.</p></section>
+
+<section class="pnl" data-panel="optimize" hidden><h3>Optimizer</h3><p class="hint">Real Windows tweaks for smoother games. Undo puts it all back.</p>
+<div class="actions tight"><button class="btn btn-sm" id="optAll">Optimize all</button><button class="btn btn-sm btn-ghost" id="optUndo">Undo all</button></div>
+<p class="hint" id="optMsg"></p><div class="tws"><label class="tw"><span><b>High performance power plan</b><small>CPU stays at full speed instead of saving power. Steadier frame times.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Game Mode</b><small>Windows gives the game you play first claim on CPU and GPU time.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Background recording off</b><small>Stops Xbox Game Bar recording clips in the background.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Windowed game boost</b><small>Flip model for borderless and windowed games: lower input delay.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Mouse acceleration off</b><small>1:1 aim. Turns off Enhance pointer precision.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Sticky Keys popup off</b><small>No more Sticky Keys window when you press Shift five times.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Pop-up notifications off</b><small>No app notifications popping up over your game.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Background apps off</b><small>Store apps stop running in the background.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Transparency off</b><small>Less GPU work on the taskbar and Windows menus.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Window animations off</b><small>Windows open and minimize instantly.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Game Bar popups off</b><small>Stops the Game Bar tips and the controller popup.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Taskbar animations off</b><small>Taskbar buttons stop sliding and fading.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Menus open instantly</b><small>Removes the small wait before menus open.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Windows tips off</b><small>No more tips, ads and suggestions popping up.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Faster key repeat</b><small>Keys repeat sooner when you hold them down.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label><label class="tw"><span><b>Faster startup apps</b><small>Apps that start with Windows do not wait for a delay.</small></span><span class="sw"><input type="checkbox" data-tw><i></i></span></label></div>
+<div class="tool"><span><b>Clean temp files</b><small>Deletes files older than a day from your own Temp folder. Files in use are skipped.</small></span><button class="btn btn-sm btn-ghost" data-tool="clean">Clean</button></div>
+<div class="tool"><span><b>Empty recycle bin</b><small>Permanently deletes everything in your Recycle Bin.</small></span><button class="btn btn-sm btn-ghost" data-tool="bin">Empty</button></div>
+<div class="tool"><span><b>Flush DNS cache</b><small>Clears saved network addresses. Can fix odd connection problems.</small></span><button class="btn btn-sm btn-ghost" data-tool="dns">Flush</button></div></section>
+
+<section class="pnl" data-panel="crosshair" hidden><h3>Crosshair</h3><p class="hint">Make your own crosshair and show it on top of your game.</p>
+<div class="actions tight"><button class="btn btn-sm" id="chBtn">Crosshair: on</button></div>
+<p class="hint">Built-in</p><div class="chips" id="chPresets"></div>
+<p class="hint">Style</p><div class="seg"><button data-style="cross" class="on">Cross</button><button data-style="dot" class="">Dot</button><button data-style="circle" class="">Circle</button></div>
+<div class="swatches"><button data-color="#22ff88" class="on" aria-label="#22ff88"></button><button data-color="#00e5ff" class="" aria-label="#00e5ff"></button><button data-color="#ff2d55" class="" aria-label="#ff2d55"></button><button data-color="#ffe14d" class="" aria-label="#ffe14d"></button><button data-color="#ffffff" class="" aria-label="#ffffff"></button><button data-color="#c084fc" class="" aria-label="#c084fc"></button></div>
+<div class="ctl"><label>Size<output data-o="size"></output></label><input type="range" min="1" max="30" step="1" data-ch="size"></div><div class="ctl"><label>Thickness<output data-o="thick"></output></label><input type="range" min="1" max="8" step="1" data-ch="thick"></div><div class="ctl"><label>Gap<output data-o="gap"></output></label><input type="range" min="0" max="15" step="1" data-ch="gap"></div><div class="ctl"><label>Offset X<output data-o="ox"></output></label><input type="range" min="-40" max="40" step="1" data-ch="ox"></div><div class="ctl"><label>Offset Y<output data-o="oy"></output></label><input type="range" min="-40" max="40" step="1" data-ch="oy"></div>
+<label class="swrow"><span>Black outline</span><span class="sw"><input type="checkbox" id="chOutline" checked><i></i></span></label>
+<div class="actions tight"><button class="btn btn-sm btn-ghost" id="chReset">Reset</button><button class="btn btn-sm btn-ghost" id="chSave">Save crosshair</button></div>
+<p class="hint">Saved crosshairs</p><div class="chips" id="chSaved"><small class="muted">None yet</small></div></section>
+
+<section class="pnl" data-panel="overlay" hidden><h3>Overlay</h3><p class="hint">Shows your CPU, GPU and memory use on top of your game.</p>
+<div class="actions tight"><button class="btn btn-sm" id="ovBtn">Overlay: on</button></div>
+<p class="hint">Position</p><div class="seg"><button data-pos="tl" class="on">Top left</button><button data-pos="tr" class="">Top right</button><button data-pos="bl" class="">Bottom left</button><button data-pos="br" class="">Bottom right</button></div>
+<p class="hint">Show</p><div class="checks col"><label><input type="checkbox" data-item="cpu" checked> CPU use</label><label><input type="checkbox" data-item="gpu" checked> GPU use</label><label><input type="checkbox" data-item="ram" checked> Memory (RAM)</label><label><input type="checkbox" data-item="gt" checked> GPU temperature</label><label><input type="checkbox" data-item="fps" > FPS (needs PresentMon)</label><label><input type="checkbox" data-item="vram" > Video memory</label></div>
+<div class="ctl"><label>Text size<output data-o="ts"></output></label><input type="range" min="8" max="16" step="1" data-ovk="ts"></div><div class="ctl"><label>Opacity<output data-o="op"></output></label><input type="range" min="30" max="100" step="5" data-ovk="op"></div></section>
+
+<section class="pnl" data-panel="games" hidden><h3>Game profiles</h3>
+<p class="hint">Choose a game and a look. Prisma switches to it when the game starts and puts your colours back when it closes.</p>
+<div class="actions tight"><button class="btn btn-sm" id="autoBtn">Auto-apply: on</button></div>
+<label class="fl">Game program<input type="text" id="gName" placeholder="for example NeonDrift.exe"></label>
+<label class="fl">Look to use<select id="gLook"></select></label>
+<label class="fl">Crosshair<select id="gXh"></select></label>
+<div class="actions tight"><button class="btn btn-sm btn-ghost" id="gAdd">Add game</button></div>
+<p class="hint">Your games</p><div id="gameList" class="plist"></div><p class="hint" id="gStatus">Waiting for one of your games to start...</p></section>
+
+<section class="pnl" data-panel="binds" hidden><h3>Binds</h3>
+<p class="hint">Click a key box, then press the keys you want, for example Ctrl + Alt + P. Esc cancels. These work in the demo!</p>
+<div class="binds"><div class="bind"><span>Filter on / off</span><button class="keybox" data-bind="filter">Ctrl+Alt+F</button><button class="lnk" data-clear="filter">Clear</button></div><div class="bind"><span>Whole screen on / off</span><button class="keybox" data-bind="screen">Not set</button><button class="lnk" data-clear="screen">Clear</button></div><div class="bind"><span>Crosshair on / off</span><button class="keybox" data-bind="xhair">Ctrl+Alt+C</button><button class="lnk" data-clear="xhair">Clear</button></div><div class="bind"><span>Show / hide Prisma</span><button class="keybox" data-bind="show">Not set</button><button class="lnk" data-clear="show">Clear</button></div></div></section>
+
+<section class="pnl" data-panel="themes" hidden><h3>Themes</h3><p class="hint">Change how Prisma looks. Pick a theme, make your own with Custom, and set how round the corners are.</p>
+<div class="themes"><button class="theme on" data-theme="#8b5cf6"><i style="background:#8b5cf6"></i>Purple</button><button class="theme " data-theme="#0ea5e9"><i style="background:#0ea5e9"></i>Ocean</button><button class="theme " data-theme="#e11d48"><i style="background:#e11d48"></i>Crimson</button><button class="theme " data-theme="#22c55e"><i style="background:#22c55e"></i>Matrix</button><button class="theme " data-theme="#f97316"><i style="background:#f97316"></i>Sunset</button><button class="theme " data-theme="#a1a1aa"><i style="background:#a1a1aa"></i>Mono</button></div>
+<p class="hint">Make your own:</p>
+<div class="custom"><label>Accent<input type="color" id="cAccent" value="#8b5cf6"></label><label>Background<input type="color" id="cBg" value="#0b0912"></label><label>Panels<input type="color" id="cPanel" value="#100d1a"></label></div>
+<div class="ctl"><label>Roundness<output data-o="round"></output></label><input type="range" min="0" max="24" step="1" data-th="round"></div></section>
+
+<section class="pnl" data-panel="account" hidden><h3>Account</h3>
+<p class="hint">Log in to save your looks, crosshairs and game profiles online and use them on another PC.</p>
+<div class="actions tight"><a class="btn btn-sm" href="login.html">Log in</a><a class="btn btn-sm btn-ghost" href="signup.html">Create account</a></div>
+<p class="hint">Upload saves your looks, crosshairs and game profiles. Download replaces the ones on this PC with your saved copy.</p>
+<p class="hint">It's the same account as on this website, so you can create one right now.</p></section>
+
+<section class="pnl" data-panel="settings" hidden><h3>Settings</h3><label class="swrow"><span>Start with Windows</span><span class="sw"><input type="checkbox" id="set0" checked><i></i></span></label><label class="swrow"><span>Start minimised</span><span class="sw"><input type="checkbox" id="set1" ><i></i></span></label><label class="swrow"><span>Instant mode<small>Turn this on if your Prisma is lagging. It turns off all motion.</small></span><span class="sw"><input type="checkbox" id="set2" ><i></i></span></label><label class="swrow"><span>Sound cues</span><span class="sw"><input type="checkbox" id="set3" checked><i></i></span></label><label class="swrow"><span>Start animation</span><span class="sw"><input type="checkbox" id="set4" checked><i></i></span></label><label class="swrow"><span>Show start screen</span><span class="sw"><input type="checkbox" id="set5" checked><i></i></span></label><label class="swrow"><span>Keep colours applied</span><span class="sw"><input type="checkbox" id="set6" checked><i></i></span></label><label class="swrow"><span>Background animation<small>A light streak under the title bar.</small></span><span class="sw"><input type="checkbox" id="set7" checked><i></i></span></label>
+<div class="actions tight"><button class="btn btn-sm btn-ghost" id="replay">Show start screen</button><button class="btn btn-sm btn-ghost" id="upd">Check for updates</button></div></section>
+
+<section class="pnl" data-panel="about" hidden><h3>About Prisma</h3><span class="tag beta">Beta version</span>
+<p class="hint">Prisma makes your games look better and run better: colour and saturation, saved looks, a crosshair and stats overlay, game profiles that switch automatically, and one-click Windows tweaks that can all be undone.</p>
+<p class="hint">Made in Denmark. Version <b>1.01</b>.</p>
+<a class="btn btn-sm" data-dl href="download.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg> Download Prisma</a></section></div>
       </div>
     </div>
+    <div class="splash" id="splash"><img src="assets/icon.png" alt=""><h2 class="spaced">P R I S M A</h2><p>Your game toolkit</p><button class="btn" id="startBtn">Start</button></div>
   </div>
-  <p class="muted demo-foot">This is a browser demo of how Prisma works. The real app changes colours across your whole screen and draws overlays on top of your games.</p>
+  <p class="muted demo-foot">This is a browser demo. The real app changes colours across your whole screen with your NVIDIA driver and draws the crosshair and overlay on top of your games.</p>
 </div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="gammaF" color-interpolation-filters="sRGB"><feComponentTransfer>
 <feFuncR id="gR" type="gamma" amplitude="1" exponent="1" offset="0"/><feFuncG id="gG" type="gamma" amplitude="1" exponent="1" offset="0"/><feFuncB id="gB" type="gamma" amplitude="1" exponent="1" offset="0"/>
