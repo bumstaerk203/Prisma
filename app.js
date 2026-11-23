@@ -101,12 +101,21 @@
       if (!needSb()) return;
       if ((await sb.auth.getSession()).data.session) return location.replace("account.html");
       if (linkError) msg(box, linkError);
+      const LK = "prisma-lock", lk = () => { try { return JSON.parse(localStorage.getItem(LK)) || { n: 0, until: 0 }; } catch { return { n: 0, until: 0 }; } }, lkSave = (v) => { try { localStorage.setItem(LK, JSON.stringify(v)); } catch {} };
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        const L = lk(), wait = Math.ceil((L.until - Date.now()) / 60000);
+        if (wait > 0) return msg(box, `Too many wrong tries. Wait ${wait} min and try again.`);
         const email = form.email.value.trim(), btn = form.querySelector("button");
         busy(btn, true);
         const { error } = await sb.auth.signInWithPassword({ email, password: form.password.value });
         busy(btn, false);
+        if (!error) { lkSave({ n: 0, until: 0 }); }
+        if (error && error.code === "invalid_credentials") {
+          const L2 = lk(); L2.n++;
+          if (L2.n >= 5) { lkSave({ n: 0, until: Date.now() + 300000 }); return msg(box, "Too many wrong tries. Wait 5 min and try again."); }
+          lkSave(L2); return msg(box, `Wrong email or password. ${5 - L2.n} tries left.`);
+        }
         if (!error) return location.assign(/^[a-z]+\.html$/.test(qp.get("next") || "") ? qp.get("next") : "account.html");
         if (/confirm/i.test(error.message)) {
           const b = document.createElement("button"); b.type = "button"; b.textContent = "Resend confirmation email";
