@@ -69,7 +69,7 @@
     if (r.asset && loggedIn) dlLinks.forEach((a) => (a.href = r.asset.url));
     if (page === "download") {
       $("#relDate").textContent = new Date(r.date).toLocaleDateString(undefined, { dateStyle: "long" });
-      $("#relSize").textContent = r.asset ? bytes(r.asset.size) : "–";
+      $("#relSize").textContent = r.asset ? bytes(r.asset.size) : "2.6 MB";
       if (r.asset?.digest) { $("#relHash").textContent = r.asset.digest.replace(/^sha256:/, ""); $("#hashRow").hidden = false; }
       $("#relLink").href = r.url;
       if (r.notes) { $("#notes").textContent = r.notes; $("#notesCard").hidden = false; }

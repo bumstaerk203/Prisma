@@ -20,7 +20,7 @@
   ];
   const derive = (t) => { t.fill2 = mix(t.fill, WHITE, 0.07); t.line = mix(t.fill, t.acc, 0.28); t.track = mix(t.fill, t.acc, 0.35); t.acc2 = mix(t.acc, BLACK, 0.3); t.mute = mix(mix(t.fill, WHITE, 0.6), t.acc, 0.2); };
   derive(THEMES[6]);
-  let L = THEMES[0], themeIdx = 0, rad = 18;
+  let L = THEMES[2], themeIdx = 2, rad = 18;
   const R = (h) => Math.min(Math.trunc(h / 2), Math.max(3, Math.trunc(Math.min(h, 36) * rad / 64)));
   const S = { sat: 50, bri: 0, con: 100, gam: 100, def: 50 };
   const mins = [0, -100, 50, 50], maxs = [100, 100, 150, 200], names = ["Saturation", "Brightness", "Contrast", "Gamma"], keys = ["sat", "bri", "con", "gam"];
@@ -102,7 +102,7 @@
   }
   const flow = (p, x, y, w, h) => box(p, "flow", x, y, w, h);
   const mctx = document.createElement("canvas").getContext("2d");
-  const measure = (t) => { mctx.font = '13.33px "Segoe UI", system-ui, sans-serif'; return Math.ceil(mctx.measureText(t).width) + 6; };
+  const measure = (t) => { mctx.font = '13.33px Montserrat, "Segoe UI", system-ui, sans-serif'; return Math.ceil(mctx.measureText(t).width) + 6; };
   function flowBtn(fl, text, sel, onClick) {
     const b = document.createElement("button"); b.className = "ab rb f2" + (sel ? " sel" : ""); b.textContent = text;
     Object.assign(b.style, { width: measure(text) + 30 + "px", height: "30px", position: "relative", borderRadius: R(30) + "px" }); radEls.push([b, 30]);
@@ -206,7 +206,7 @@
       g.beginPath(); g.roundRect(1.5, 1.5, 114, 88, R(92)); g.fillStyle = css(t.fill); g.fill(); g.lineWidth = sel ? 2.5 : 1; g.strokeStyle = css(sel ? t.acc : t.line); g.stroke();
       [[t.acc, 14], [t.acc2, 34], [t.mute, 54]].forEach(([col, x]) => { g.beginPath(); g.arc(x + 7, 21, 7, 0, 7); g.fillStyle = css(col); g.fill(); });
       g.fillStyle = css(t.track); g.fillRect(14, 44, 78, 6); g.fillStyle = css(t.acc); g.fillRect(14, 44, 46, 6);
-      g.fillStyle = "#fff"; g.font = 'bold 13.33px "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText(t.name, 14, 64);
+      g.fillStyle = "#fff"; g.font = 'bold 13.33px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText(t.name, 14, 64);
     };
     c.onclick = () => { snd(0); setTheme(i); };
     tiles.push(c);
@@ -322,7 +322,7 @@
   mksw(se, "Background animation", 350, 100, true, (v) => root.classList.toggle("nobg", !v));
   label(se, "A light streak under the title bar.", 350, 144, 320, 24, MUTE, 8.5);
   rbtn(se, "Open settings folder", 690, 10, 200, 34, 2, () => (updMsg.textContent = "In the app this opens %APPDATA%\\Prisma."));
-  rbtn(se, "Reset Prisma settings", 690, 54, 200, 34, 2, () => { resetDisplay(); screenOn = false; screenT.set(false); applyScreen(); rad = 18; roundS.set(18, true); setTheme(0); updateStatus(); msg.textContent = "Prisma settings were reset."; });
+  rbtn(se, "Reset Prisma settings", 690, 54, 200, 34, 2, () => { resetDisplay(); screenOn = false; screenT.set(false); applyScreen(); rad = 18; roundS.set(18, true); setTheme(2); updateStatus(); msg.textContent = "Prisma settings were reset."; });
   rbtn(se, "Replay tour", 690, 98, 200, 34, 2, () => startTour());
   rbtn(se, "Check for updates", 690, 142, 200, 34, 2, () => { updMsg.textContent = "Checking..."; setTimeout(() => (updMsg.textContent = "You have the newest version."), 700); });
   const updMsg = label(se, "", 690, 180, 210, 36, MUTE, 8.5);
@@ -461,7 +461,7 @@
     for (let x = (w / 2) % 40; x < w; x += 40) { g.moveTo(x + 0.5, 0); g.lineTo(x + 0.5, h); }
     for (let y = (h / 2) % 40; y < h; y += 40) { g.moveTo(0, y + 0.5); g.lineTo(w, y + 0.5); }
     g.stroke(); xhDraw(g, w / 2 + xh.offX, h / 2 + xh.offY, xh);
-    g.fillStyle = "rgba(255,255,255,.59)"; g.font = '11.33px "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Preview", 14, 10);
+    g.fillStyle = "rgba(255,255,255,.59)"; g.font = '11.33px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Preview", 14, 10);
     xprev.style.borderRadius = Math.min(rad, 22) + "px";
   };
   const xov = document.createElement("canvas"); xov.className = "prisma-xh"; xov.width = 480; xov.height = 480; xov.style.display = "none"; document.body.appendChild(xov);
@@ -624,12 +624,12 @@
   function drawPreview() {
     const g = prevC.getContext("2d"), cw = prevC.width, ch = prevC.height;
     g.fillStyle = css(L.fill); g.fillRect(0, 0, cw, ch);
-    if (!srcCanvas) { g.fillStyle = "gray"; g.font = '14.67px "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Load a screenshot to preview your colours", 20, 20); return; }
+    if (!srcCanvas) { g.fillStyle = "gray"; g.font = '14.67px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Load a screenshot to preview your colours", 20, 20); return; }
     g.drawImage(afterCanvas, rect.x, rect.y);
     const sx = rect.x + Math.trunc(rect.w * split);
     g.save(); g.beginPath(); g.rect(rect.x, rect.y, Math.max(0, sx - rect.x), rect.h); g.clip(); g.drawImage(srcCanvas, rect.x, rect.y); g.restore();
     g.fillStyle = "rgba(10,6,18,.667)"; g.fillRect(rect.x + 10, rect.y + 10, 64, 20); g.fillRect(rect.x + rect.w - 70, rect.y + 10, 60, 20);
-    g.fillStyle = "#fff"; g.font = 'bold 10.67px "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top";
+    g.fillStyle = "#fff"; g.font = 'bold 10.67px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top";
     g.fillText("BEFORE", rect.x + 16, rect.y + 14); g.fillText("AFTER", rect.x + rect.w - 62, rect.y + 14);
     g.strokeStyle = "#fff"; g.lineWidth = 2; g.beginPath(); g.moveTo(sx, rect.y); g.lineTo(sx, rect.y + rect.h); g.stroke();
     const cy = rect.y + rect.h / 2;
