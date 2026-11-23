@@ -1,13 +1,14 @@
+@font-face{font-family:"Montserrat";src:url("assets/fonts/Montserrat.ttf") format("truetype");font-weight:100 900;font-display:swap}
 :root{--bg:#07060b;--card:#110f1a;--card2:#171425;--line:#251f38;--text:#eeebf7;--muted:#9b94b4;--p:#8b5cf6;--p2:#a78bfa;--p3:#c084fc;--r:18px;--err:#fb7185;--ok:#4ade80}
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
 html{color-scheme:dark;scroll-behavior:smooth}
-body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+body{font:16px/1.6 Gotham,"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(55% 45% at 75% -5%,#7c3aed38,transparent 70%),radial-gradient(40% 40% at -5% 35%,#c026d31f,transparent 70%)}
 main{flex:1}
 a{color:var(--p2);text-decoration:none}a:hover{color:#fff}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,h3{line-height:1.15;letter-spacing:-.02em}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
 .muted{color:var(--muted)}
 .grad{background:linear-gradient(120deg,#fff 10%,var(--p3) 55%,var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
 
