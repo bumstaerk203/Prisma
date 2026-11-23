@@ -20,7 +20,7 @@
   const bytes = (n) => (n / 1048576).toFixed(1) + " MB";
 
   // ---------- layout ----------
-  const nav = [["index.html", "Home", "home", ""], ["index.html#features", "Features", "", "hide-sm"], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
+  const nav = [["index.html", "Home", "home", "nav-home"], ["index.html#features", "Features", "", "hide-sm"], ["demo.html", "Try demo", "demo", ""], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
   const header = $("header.site");
   if (header) header.innerHTML = `<div class="wrap"><a class="brand" href="index.html"><img src="assets/logo.svg" alt="">Prisma</a><nav>
     ${nav.map(([h, t, p, c]) => `<a href="${h}" class="${c} ${p === page ? "active" : ""}">${t}</a>`).join("")}
