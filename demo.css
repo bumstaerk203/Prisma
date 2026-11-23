@@ -96,5 +96,5 @@
 .prisma-stats span{color:var(--pacc,#a855f7)}
 .demo-note{font-size:14px;color:var(--muted);margin-top:14px;text-align:center}
 
-#prisma .nb .g{display:flex;align-items:center;justify-content:center;top:12px;height:18px;font:inherit}
+#prisma .nb .g{font:16px "Segoe UI Symbol","DejaVu Sans",sans-serif;font-variant-emoji:text}#prisma .nb .g.emo{font-family:"Segoe UI Emoji","Noto Color Emoji",sans-serif;font-variant-emoji:emoji}
 #prisma,#prisma .rb,#prisma .pill,#prisma .tb{font-family:"Segoe UI","Open Sans",system-ui,sans-serif!important}
