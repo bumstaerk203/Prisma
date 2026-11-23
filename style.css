@@ -221,7 +221,7 @@ nav a{white-space:nowrap}
 /* ---------- scroll reveal ---------- */
 .rv{opacity:0;transform:translateY(14px) scale(.985);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.rv{transform:translateY(6px);transition:opacity .6s ease-out,transform .6s ease-out}}
 
 /* ---------- demo v2 (matches the app) ---------- */
 .app{--rr:12px;background:var(--abg,#0a0406);position:relative}
