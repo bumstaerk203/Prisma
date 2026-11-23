@@ -30,7 +30,9 @@
   if (footer) footer.innerHTML = `<div class="wrap"><span>© ${new Date().getFullYear()} Prisma. Not affiliated with NVIDIA.</span>
     <div class="links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="https://github.com/${C.GITHUB_REPO}" rel="noopener">GitHub</a></div></div>`;
   document.querySelectorAll("[data-cfg]").forEach((el) => { const v = C[el.dataset.cfg]; if (v) { el.textContent = v; if (el.tagName === "A" && v.includes("@")) el.href = "mailto:" + v; } });
-  if (sb) sb.auth.getSession().then(({ data }) => { if (data.session) { const a = $("#authLink"); a.textContent = "Account"; a.href = "account.html"; } });
+  let loggedIn = false;
+  const gateDl = () => { if (loggedIn) return; document.querySelectorAll("[data-dl]").forEach((a) => { a.href = "login.html?next=download.html"; a.title = "Log in to download"; }); const n = $("#dlGate"); if (n) n.hidden = false; };
+  if (sb) sb.auth.getSession().then(({ data }) => { if (data.session) { loggedIn = true; const a = $("#authLink"); a.textContent = "Account"; a.href = "account.html"; } gateDl(); });
   if (qp.get("deleted")) toast("Your account and synced data have been deleted.");
 
   // ---------- scroll reveal ----------
@@ -64,7 +66,7 @@
   if (dlLinks.length || page === "download") latestRelease().then((r) => {
     document.querySelectorAll("[data-version]").forEach((el) => (el.textContent = r.tag));
     $("#newPill")?.removeAttribute("hidden");
-    if (r.asset) dlLinks.forEach((a) => (a.href = r.asset.url));
+    if (r.asset && loggedIn) dlLinks.forEach((a) => (a.href = r.asset.url));
     if (page === "download") {
       $("#relDate").textContent = new Date(r.date).toLocaleDateString(undefined, { dateStyle: "long" });
       $("#relSize").textContent = r.asset ? bytes(r.asset.size) : "–";
@@ -105,7 +107,7 @@
         busy(btn, true);
         const { error } = await sb.auth.signInWithPassword({ email, password: form.password.value });
         busy(btn, false);
-        if (!error) return location.assign("account.html");
+        if (!error) return location.assign(/^[a-z]+\.html$/.test(qp.get("next") || "") ? qp.get("next") : "account.html");
         if (/confirm/i.test(error.message)) {
           const b = document.createElement("button"); b.type = "button"; b.textContent = "Resend confirmation email";
           b.onclick = async () => { await sb.auth.resend({ type: "signup", email, options: { emailRedirectTo: base + "account.html" } }); msg(box, "Confirmation email sent. Check your inbox.", "ok"); };
