@@ -39,7 +39,7 @@
 #prisma .nb{height:42px;cursor:pointer;border:1px solid transparent}
 #prisma .nb:hover{background:var(--fill2)}
 #prisma .nb.on{background:linear-gradient(135deg,var(--navon),var(--fill2));border-color:var(--navonb)}
-#prisma .nb .g{position:absolute;left:12px;top:8px;font:16px "Segoe UI Symbol","Segoe UI Emoji",sans-serif;color:#fff;width:24px;text-align:center}
+#prisma .nb .g{position:absolute;left:12px;top:8px;font:16px "Segoe UI Symbol","DejaVu Sans","Noto Sans Symbols","Noto Sans Symbols 2",sans-serif;font-variant-emoji:text;color:#fff;width:24px;text-align:center}
 #prisma .nb.on .g{color:var(--acc)}
 #prisma .nb .t{position:absolute;left:44px;top:10px;font-weight:700;font-size:14px}
 /* caption buttons */

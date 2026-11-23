@@ -147,7 +147,7 @@
   const tops = [36, 80, 124, 416, 504, 460, 168, 212, 256, 300, 344];
   const nav = pageNames.map((n, i) => {
     const b = box(side, "nb", 12, tops[i], 190, 42); radEls.push([b, 42]);
-    b.innerHTML = `<span class="g">${glyphs[i]}</span><span class="t">${n}</span>`;
+    b.innerHTML = `<span class="g">${glyphs[i]}\uFE0E</span><span class="t">${n}</span>`;
     b.onclick = () => { snd(0); onNav(i); };
     return b;
   });
