@@ -102,7 +102,7 @@
   }
   const flow = (p, x, y, w, h) => box(p, "flow", x, y, w, h);
   const mctx = document.createElement("canvas").getContext("2d");
-  const measure = (t) => { mctx.font = '13.33px Montserrat, "Segoe UI", system-ui, sans-serif'; return Math.ceil(mctx.measureText(t).width) + 6; };
+  const measure = (t) => { mctx.font = '13.33px "Segoe UI", "Open Sans", system-ui, sans-serif'; return Math.ceil(mctx.measureText(t).width) + 6; };
   function flowBtn(fl, text, sel, onClick) {
     const b = document.createElement("button"); b.className = "ab rb f2" + (sel ? " sel" : ""); b.textContent = text;
     Object.assign(b.style, { width: measure(text) + 30 + "px", height: "30px", position: "relative", borderRadius: R(30) + "px" }); radEls.push([b, 30]);
@@ -143,11 +143,11 @@
   label(side, "MENU", 20, 16, 150, 18, MUTE, 8, true);
   label(side, "GENERAL", 20, 396, 150, 18, MUTE, 8, true);
   const pageNames = ["Colour", "Presets", "Themes", "Account", "About", "Settings", "Optimize", "Crosshair", "Binds", "Overlay", "Games"];
-  const glyphs = ["◐", "☰", "✦", "☺", "ⓘ", "⚙", "⚡", "⊕", "⌨", "▤", "♞"];
+  const glyphs = ["<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"10\" r=\"7\"/><path d=\"M10 3a7 7 0 0 0 0 14z\" fill=\"currentColor\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 5.5h12M4 10h12M4 14.5h12\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\"><path d=\"M10 2.5 11.6 8.4 17.5 10 11.6 11.6 10 17.5 8.4 11.6 2.5 10 8.4 8.4z\" fill=\"currentColor\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"10\" r=\"7.5\"/><circle cx=\"7.4\" cy=\"8.2\" r=\".6\" fill=\"currentColor\"/><circle cx=\"12.6\" cy=\"8.2\" r=\".6\" fill=\"currentColor\"/><path d=\"M6.6 11.8q3.4 3.4 6.8 0\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"10\" r=\"6.5\"/><path d=\"M10 9v4.3\"/><circle cx=\"10\" cy=\"6.8\" r=\".5\" fill=\"currentColor\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"10\" r=\"2.6\"/><path d=\"M10 3v2M10 15v2M3 10h2M15 10h2M5 5l1.4 1.4M13.6 13.6 15 15M5 15l1.4-1.4M13.6 6.4 15 5\"/><circle cx=\"10\" cy=\"10\" r=\"5\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11.5 3.5 7.5 10.5h4l-3 6\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"10\" cy=\"10\" r=\"6.5\"/><path d=\"M10 5v10M5 10h10\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"20\" height=\"18\"><rect x=\"2\" y=\"5\" width=\"16\" height=\"10.5\" rx=\"1.5\" fill=\"#1e40af\" stroke=\"#60a5fa\" stroke-width=\"1\"/><g fill=\"#bfdbfe\"><rect x=\"4\" y=\"7\" width=\"1.6\" height=\"1.4\"/><rect x=\"6.6\" y=\"7\" width=\"1.6\" height=\"1.4\"/><rect x=\"9.2\" y=\"7\" width=\"1.6\" height=\"1.4\"/><rect x=\"11.8\" y=\"7\" width=\"1.6\" height=\"1.4\"/><rect x=\"14.4\" y=\"7\" width=\"1.6\" height=\"1.4\"/><rect x=\"4\" y=\"9.6\" width=\"1.6\" height=\"1.4\"/><rect x=\"6.6\" y=\"9.6\" width=\"1.6\" height=\"1.4\"/><rect x=\"9.2\" y=\"9.6\" width=\"1.6\" height=\"1.4\"/><rect x=\"11.8\" y=\"9.6\" width=\"1.6\" height=\"1.4\"/><rect x=\"14.4\" y=\"9.6\" width=\"1.6\" height=\"1.4\"/><rect x=\"6\" y=\"12.2\" width=\"8\" height=\"1.4\"/></g></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"4\" y=\"4\" width=\"12\" height=\"12\" rx=\"1\"/><path d=\"M6.5 7.5h7M6.5 10h7M6.5 12.5h7\"/></svg>", "<svg viewBox=\"0 0 20 20\" width=\"18\" height=\"18\"><path d=\"M6 17h9v-1.6c-1.6-.8-2-2.4-1.6-4.2.5-2.2-.3-5-2.6-6.6l.4-1.9-1.6 1.2c-1.8-.2-3.5 1-4.1 2.6L4 9.6l1 1.4 2.4-.7c.7-.2 1.5.1 1.6.8-1.6 1-3.2 2.6-3 4.3z\" fill=\"currentColor\"/></svg>"];
   const tops = [36, 80, 124, 416, 504, 460, 168, 212, 256, 300, 344];
   const nav = pageNames.map((n, i) => {
     const b = box(side, "nb", 12, tops[i], 190, 42); radEls.push([b, 42]);
-    b.innerHTML = `<span class="g">${glyphs[i]}\uFE0E</span><span class="t">${n}</span>`;
+    b.innerHTML = `<span class="g">${glyphs[i]}</span><span class="t">${n}</span>`;
     b.onclick = () => { snd(0); onNav(i); };
     return b;
   });
@@ -206,7 +206,7 @@
       g.beginPath(); g.roundRect(1.5, 1.5, 114, 88, R(92)); g.fillStyle = css(t.fill); g.fill(); g.lineWidth = sel ? 2.5 : 1; g.strokeStyle = css(sel ? t.acc : t.line); g.stroke();
       [[t.acc, 14], [t.acc2, 34], [t.mute, 54]].forEach(([col, x]) => { g.beginPath(); g.arc(x + 7, 21, 7, 0, 7); g.fillStyle = css(col); g.fill(); });
       g.fillStyle = css(t.track); g.fillRect(14, 44, 78, 6); g.fillStyle = css(t.acc); g.fillRect(14, 44, 46, 6);
-      g.fillStyle = "#fff"; g.font = 'bold 13.33px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText(t.name, 14, 64);
+      g.fillStyle = "#fff"; g.font = 'bold 13.33px "Segoe UI", "Open Sans", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText(t.name, 14, 64);
     };
     c.onclick = () => { snd(0); setTheme(i); };
     tiles.push(c);
@@ -461,7 +461,7 @@
     for (let x = (w / 2) % 40; x < w; x += 40) { g.moveTo(x + 0.5, 0); g.lineTo(x + 0.5, h); }
     for (let y = (h / 2) % 40; y < h; y += 40) { g.moveTo(0, y + 0.5); g.lineTo(w, y + 0.5); }
     g.stroke(); xhDraw(g, w / 2 + xh.offX, h / 2 + xh.offY, xh);
-    g.fillStyle = "rgba(255,255,255,.59)"; g.font = '11.33px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Preview", 14, 10);
+    g.fillStyle = "rgba(255,255,255,.59)"; g.font = '11.33px "Segoe UI", "Open Sans", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Preview", 14, 10);
     xprev.style.borderRadius = Math.min(rad, 22) + "px";
   };
   const xov = document.createElement("canvas"); xov.className = "prisma-xh"; xov.width = 480; xov.height = 480; xov.style.display = "none"; document.body.appendChild(xov);
@@ -624,12 +624,12 @@
   function drawPreview() {
     const g = prevC.getContext("2d"), cw = prevC.width, ch = prevC.height;
     g.fillStyle = css(L.fill); g.fillRect(0, 0, cw, ch);
-    if (!srcCanvas) { g.fillStyle = "gray"; g.font = '14.67px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Load a screenshot to preview your colours", 20, 20); return; }
+    if (!srcCanvas) { g.fillStyle = "gray"; g.font = '14.67px "Segoe UI", "Open Sans", system-ui, sans-serif'; g.textBaseline = "top"; g.fillText("Load a screenshot to preview your colours", 20, 20); return; }
     g.drawImage(afterCanvas, rect.x, rect.y);
     const sx = rect.x + Math.trunc(rect.w * split);
     g.save(); g.beginPath(); g.rect(rect.x, rect.y, Math.max(0, sx - rect.x), rect.h); g.clip(); g.drawImage(srcCanvas, rect.x, rect.y); g.restore();
     g.fillStyle = "rgba(10,6,18,.667)"; g.fillRect(rect.x + 10, rect.y + 10, 64, 20); g.fillRect(rect.x + rect.w - 70, rect.y + 10, 60, 20);
-    g.fillStyle = "#fff"; g.font = 'bold 10.67px Montserrat, "Segoe UI", system-ui, sans-serif'; g.textBaseline = "top";
+    g.fillStyle = "#fff"; g.font = 'bold 10.67px "Segoe UI", "Open Sans", system-ui, sans-serif'; g.textBaseline = "top";
     g.fillText("BEFORE", rect.x + 16, rect.y + 14); g.fillText("AFTER", rect.x + rect.w - 62, rect.y + 14);
     g.strokeStyle = "#fff"; g.lineWidth = 2; g.beginPath(); g.moveTo(sx, rect.y); g.lineTo(sx, rect.y + rect.h); g.stroke();
     const cy = rect.y + rect.h / 2;

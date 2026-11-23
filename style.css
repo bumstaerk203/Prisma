@@ -290,7 +290,6 @@ nav a{white-space:nowrap}
 .shot{aspect-ratio:1180/790}.shot img{object-fit:contain;background:#0a0406}
 
 input,button,select,textarea{font-family:inherit}
-#prisma,#prisma .rb,#prisma .pill,#prisma .tb{font-family:Gotham,"Montserrat",system-ui,sans-serif!important}
 .prisma-stats{font-family:Gotham,"Montserrat",system-ui,sans-serif}
 .dl-title{font-size:clamp(56px,8vw,88px);font-weight:800;line-height:1;margin-bottom:6px}
 
