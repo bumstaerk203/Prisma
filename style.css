@@ -219,7 +219,7 @@ nav a{white-space:nowrap}
 @media(max-width:640px){nav a.nav-home{display:none}header.site .wrap{gap:8px}nav{gap:2px}}
 
 /* ---------- scroll reveal ---------- */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv{opacity:0;transform:translateY(14px) scale(.985);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 

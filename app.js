@@ -36,7 +36,7 @@
   if (qp.get("deleted")) toast("Your account and synced data have been deleted.");
 
   // ---------- scroll reveal ----------
-  const sel = ".fcard, .faq, .rv, .hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head, .app, .demo-foot, .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
+  const sel = ".fsec > .card, .faq, .card.rv, .chips-l, .rv-form, .demo-note, #prismaWrap, .hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head,  .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
   const els = [...document.querySelectorAll(sel)];
   if ("IntersectionObserver" in window) {
     els.forEach((el) => {
@@ -44,7 +44,7 @@
       el.style.setProperty("--d", Math.min(sibs.indexOf(el), 8) * 0.07 + "s");
       el.classList.add("rv");
     });
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.01, rootMargin: "0px 0px -20px 0px" });
     requestAnimationFrame(() => els.forEach((el) => io.observe(el)));
   }
 
