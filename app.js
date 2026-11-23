@@ -20,7 +20,7 @@
   const bytes = (n) => (n / 1048576).toFixed(1) + " MB";
 
   // ---------- layout ----------
-  const nav = [["index.html", "Home", "home", "nav-home"], ["index.html#features", "Features", "", "hide-sm"], ["demo.html", "Try demo", "demo", ""], ["reviews.html", "Reviews", "reviews", "hide-sm"], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
+  const nav = [["index.html", "Home", "home", "nav-home"], ["features.html", "Features", "features", "hide-sm"], ["demo.html", "Try demo", "demo", ""], ["reviews.html", "Reviews", "reviews", "hide-sm"], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
   const header = $("header.site");
   if (header) header.innerHTML = `<div class="wrap"><a class="brand" href="index.html"><img src="assets/icon-64.png" alt="">Prisma</a><nav>
     ${nav.map(([h, t, p, c]) => `<a href="${h}" class="${c} ${p === page ? "active" : ""}">${t}</a>`).join("")}
@@ -36,7 +36,7 @@
   if (qp.get("deleted")) toast("Your account and synced data have been deleted.");
 
   // ---------- scroll reveal ----------
-  const sel = ".rv, .hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head, .app, .demo-foot, .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
+  const sel = ".fcard, .faq, .rv, .hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head, .app, .demo-foot, .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
   const els = [...document.querySelectorAll(sel)];
   if ("IntersectionObserver" in window) {
     els.forEach((el) => {

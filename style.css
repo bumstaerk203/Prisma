@@ -301,3 +301,8 @@ input,button,select,textarea{font-family:inherit}
 .rv-who b{display:block;font-size:14px}.rv-who small{color:var(--muted);font-size:12px}
 .rv-form form{gap:12px}textarea{font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#0d0507;color:var(--text);resize:vertical;outline:none}
 textarea:focus{border-color:var(--p)}.lnk2{background:none;border:0;color:var(--p2);font:inherit;cursor:pointer;text-decoration:underline}
+
+.chips-l{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}.chip-l{padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:#ffffff08;color:var(--text);font-size:14px}.chip-l:hover{border-color:var(--p)}
+.fsec{padding:14px 0;scroll-margin-top:80px}.fcard{padding:28px}.fcard h2{font-size:26px;margin-bottom:4px}.fcard>p{margin-bottom:16px}
+.fcard code,.faq code{background:#ffffff10;padding:1px 6px;border-radius:6px;font-size:.9em}
+.faq{padding:0;margin-bottom:10px}.faq summary{padding:18px 22px;cursor:pointer;font-weight:600;list-style:none}.faq summary::after{content:"+";float:right;color:var(--p2)}.faq[open] summary::after{content:"–"}.faq p{padding:0 22px 18px}
