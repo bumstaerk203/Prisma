@@ -20,7 +20,7 @@
   const bytes = (n) => (n / 1048576).toFixed(1) + " MB";
 
   // ---------- layout ----------
-  const nav = [["index.html", "Home", "home", "nav-home"], ["index.html#features", "Features", "", "hide-sm"], ["demo.html", "Try demo", "demo", ""], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
+  const nav = [["index.html", "Home", "home", "nav-home"], ["index.html#features", "Features", "", "hide-sm"], ["demo.html", "Try demo", "demo", ""], ["reviews.html", "Reviews", "reviews", "hide-sm"], ["download.html", "Download", "download", "hide-sm"]].filter(([, , p]) => p !== "download");
   const header = $("header.site");
   if (header) header.innerHTML = `<div class="wrap"><a class="brand" href="index.html"><img src="assets/icon-64.png" alt="">Prisma</a><nav>
     ${nav.map(([h, t, p, c]) => `<a href="${h}" class="${c} ${p === page ? "active" : ""}">${t}</a>`).join("")}
@@ -36,7 +36,7 @@
   if (qp.get("deleted")) toast("Your account and synced data have been deleted.");
 
   // ---------- scroll reveal ----------
-  const sel = ".hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head, .app, .demo-foot, .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
+  const sel = ".rv, .hero > div > *, .hero .mock, .sec-head, .grid > .card, .shots > .shot, .cta-band, .demo-head, .app, .demo-foot, .page > h1, .page > p, .dl-card, .acct > .card, .auth .card, .legal > *";
   const els = [...document.querySelectorAll(sel)];
   if ("IntersectionObserver" in window) {
     els.forEach((el) => {
@@ -226,6 +226,29 @@
         location.replace("index.html?deleted=1");
       };
     },
+  };
+  pages.reviews = async () => {
+    const grid = $("#rvGrid"), f = $("#rvForm"), m = $("#rvMsg");
+    const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    if (!sb) return msg(m, "Reviews could not load.");
+    const { data: { session } } = await sb.auth.getSession();
+    async function load() {
+      const { data, error } = await sb.from("reviews").select("id,user_id,name,body,created_at").order("created_at", { ascending: false }).limit(200);
+      if (error) return msg(m, "Reviews could not load.");
+      grid.innerHTML = data.map((r) => `<div class="card rv"><span class="rv-tag">✓ Review</span><p>“${esc(r.body)}”</p><div class="rv-who"><i>${esc(r.name[0].toUpperCase())}</i><span><b>${esc(r.name)}</b><small>${new Date(r.created_at).toLocaleDateString(undefined, { dateStyle: "medium" })}</small></span></div></div>`).join("");
+      $("#rvEmpty").hidden = data.length > 0;
+      const mine = session && data.find((r) => r.user_id === session.user.id);
+      f.hidden = !session || !!mine; $("#rvLogin").hidden = !!session; $("#rvMine").hidden = !mine;
+    }
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault(); const btn = f.querySelector("button"); busy(btn, true);
+      const { error } = await sb.from("reviews").insert({ name: f.name.value.trim(), body: f.body.value.trim() });
+      busy(btn, false);
+      if (error) return msg(m, error.code === "23505" ? "You already wrote a review." : "Could not post: " + error.message);
+      m.hidden = true; f.reset(); load();
+    });
+    $("#rvDel").onclick = async () => { await sb.from("reviews").delete().eq("user_id", session.user.id); load(); };
+    load();
   };
   pages[page]?.();
 })();

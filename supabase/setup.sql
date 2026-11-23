@@ -39,3 +39,19 @@ create policy "own row delete" on public.prisma_sync for delete to authenticated
 --    Only works if user_id is uuid. Uncomment to apply.
 -- alter table public.prisma_sync
 --   add constraint prisma_sync_user_fk foreign key (user_id) references auth.users(id) on delete cascade;
+
+-- 4) Reviews: anyone can read, logged-in users can write ONE review and delete their own.
+create table if not exists public.reviews (
+  id bigint generated always as identity primary key,
+  user_id uuid not null unique default auth.uid() references auth.users(id) on delete cascade,
+  name text not null check (char_length(name) between 1 and 32),
+  body text not null check (char_length(body) between 3 and 300),
+  created_at timestamptz not null default now()
+);
+alter table public.reviews enable row level security;
+drop policy if exists "reviews read" on public.reviews;
+drop policy if exists "reviews write own" on public.reviews;
+drop policy if exists "reviews delete own" on public.reviews;
+create policy "reviews read" on public.reviews for select to anon, authenticated using (true);
+create policy "reviews write own" on public.reviews for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy "reviews delete own" on public.reviews for delete to authenticated using ((select auth.uid()) = user_id);
